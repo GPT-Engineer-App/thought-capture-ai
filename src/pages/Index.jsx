@@ -9,7 +9,7 @@ const Index = () => {
 
   const handleAddIdea = () => {
     if (inputText.trim() !== "") {
-      setIdeas([...ideas, { id: Date.now(), text: inputText, category: category, important: important }]);
+      setIdeas([...ideas, { id: Date.now(), content: inputText, type: category, important: important }]);
       setInputText("");
     }
   };
@@ -30,8 +30,10 @@ const Index = () => {
           <div className="flex flex-wrap items-center">
             <input type="text" className="flex-1 p-3 border-2 border-blue-300 rounded-md" placeholder="Enter your idea here..." value={inputText} onChange={handleInputChange} />
             <select className="ml-4 p-3 border-2 border-blue-300 rounded-md" value={category} onChange={(e) => setCategory(e.target.value)}>
-              <option value="Personal">Personal</option>
-              <option value="Work">Work</option>
+              <option value="Idea">Idea</option>
+              <option value="Link">Link</option>
+              <option value="Email">Email</option>
+              <option value="Note">Note</option>
             </select>
             <label className="ml-4">
               <input type="checkbox" checked={important} onChange={(e) => setImportant(e.target.checked)} />
@@ -45,7 +47,15 @@ const Index = () => {
         <ul className="mt-6">
           {ideas.map((idea) => (
             <li key={idea.id} className="bg-white p-4 shadow-md rounded-md flex items-center justify-between mb-4">
-              <span>{idea.text}</span>
+              <span>
+                {idea.type === "Link" ? (
+                  <a href={idea.content} target="_blank" rel="noopener noreferrer">
+                    {idea.content}
+                  </a>
+                ) : (
+                  idea.content
+                )}
+              </span>
               <button className="text-red-500 hover:text-red-700" onClick={() => handleDeleteIdea(idea.id)}>
                 <FaTrash />
               </button>
