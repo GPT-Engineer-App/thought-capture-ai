@@ -33,6 +33,14 @@ const PKMSystem = () => {
         </div>
       </div>
       <p>This "Second Brain" helps you remember everything you learn, make connections between different pieces of information, and apply your knowledge effectively. It acts like a personal assistant that knows what you know and assists you in using that knowledge when needed. Explore the features below to see how PKM AI can transform your information management.</p>
+      <div className="mt-6">
+        <h2 className="text-2xl font-bold text-blue-600">Recent Updates</h2>
+        <ul className="list-disc pl-6 mt-2">
+          <li>Integration with new data sources for enhanced information capture.</li>
+          <li>Improved security features to ensure data privacy.</li>
+          <li>New learning modules added for continuous growth.</li>
+        </ul>
+      </div>
     </div>
   );
 };

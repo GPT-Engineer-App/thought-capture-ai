@@ -42,7 +42,7 @@ const Index = () => {
         <h1 className="text-5xl font-bold text-center mb-6">Idea Capture and Processing</h1>
         <div className="flex items-center bg-white p-4 shadow-md rounded-md">
           <div className="flex flex-wrap items-center">
-            <input type="text" className="flex-1 p-3 border-2 border-blue-300 rounded-md" placeholder="Enter your entry here..." value={inputText} onChange={handleInputChange} />
+            <input type="text" className="flex-1 p-4 border-2 border-blue-500 rounded-md" placeholder="Enter your entry here..." value={inputText} onChange={handleInputChange} />
             <select className="ml-4 p-3 border-2 border-blue-300 rounded-md" value={category} onChange={(e) => setCategory(e.target.value)}>
               <option value="Personal">Personal</option>
               <option value="Work">Work</option>
@@ -57,7 +57,7 @@ const Index = () => {
               Important
             </label>
           </div>
-          <button className="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out" onClick={handleAddEntry} title="Add entry">
+          <button className="ml-4 bg-blue-600 hover:bg-blue-800 text-white font-bold py-3 px-5 rounded-lg transition duration-300 ease-in-out" onClick={handleAddEntry} title="Add entry">
             <FaPlus />
           </button>
         </div>
