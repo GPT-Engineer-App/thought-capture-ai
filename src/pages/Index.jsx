@@ -7,6 +7,19 @@ const Index = () => {
   const [category, setCategory] = useState("Personal");
   const [important, setImportant] = useState(false);
   const [entryType, setEntryType] = useState("Text");
+  const [showImportantOnly, setShowImportantOnly] = useState(false);
+
+  const toggleImportantFilter = () => {
+    setShowImportantOnly(!showImportantOnly);
+  };
+
+  const handleUpdateEntry = (id, newText) => {
+    setEntries(entries.map((entry) => (entry.id === id ? { ...entry, text: newText, isEditing: false } : entry)));
+  };
+
+  const handleEditEntry = (id) => {
+    setEntries(entries.map((entry) => (entry.id === id ? { ...entry, isEditing: !entry.isEditing } : entry)));
+  };
 
   const handleAddEntry = () => {
     if (inputText.trim() !== "" && entryType) {
@@ -44,17 +57,30 @@ const Index = () => {
               Important
             </label>
           </div>
-          <button className="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out" onClick={handleAddEntry}>
+          <button className="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out" onClick={handleAddEntry} title="Add entry">
             <FaPlus />
           </button>
         </div>
-        <ul className="mt-6">
+        <div className="flex justify-between items-center mt-6 mb-4">
+          <h2 className="text-xl font-semibold">Entries</h2>
+          <button className="bg-gray-200 hover:bg-gray-300 text-black py-1 px-3 rounded" onClick={toggleImportantFilter}>
+            Show Important Only
+          </button>
+        </div>
+        <ul>
           {entries.map((entry) => (
-            <li key={entry.id} className="bg-white p-4 shadow-md rounded-md flex items-center justify-between mb-4">
-              <span>{entry.text}</span>
-              <button className="text-red-500 hover:text-red-700" onClick={() => handleDeleteEntry(entry.id)}>
-                <FaTrash />
-              </button>
+            <li key={entry.id} className="bg-white p-4 shadow-md rounded-md flex items-center justify-between mb-6">
+              <span contentEditable={entry.isEditing} onBlur={(e) => handleUpdateEntry(entry.id, e.target.textContent)}>
+                {entry.text}
+              </span>
+              <div>
+                <button className="text-green-500 hover:text-green-700 mr-2" onClick={() => handleEditEntry(entry.id)}>
+                  <FaPencilAlt />
+                </button>
+                <button className="text-red-500 hover:text-red-700" onClick={() => handleDeleteEntry(entry.id)}>
+                  <FaTrash />
+                </button>
+              </div>
             </li>
           ))}
         </ul>
