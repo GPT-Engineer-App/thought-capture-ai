@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FaPlus, FaTrash, FaPencilAlt } from "react-icons/fa";
-import AIProcessingSimulator from "./AIProcessingSimulator";
 
 const Index = () => {
   const [entries, setEntries] = useState([]);
@@ -39,7 +38,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
-      <AIProcessingSimulator />
       <div className="max-w-4xl mx-auto">
         <h1 className="text-5xl font-bold text-center mb-6">Idea Capture and Processing</h1>
         <div className="flex items-center bg-white p-4 shadow-md rounded-md">
