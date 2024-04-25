@@ -23,10 +23,10 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-6">Idea Capture and Processing</h1>
+        <h1 className="text-5xl font-bold text-center mb-6">Idea Capture and Processing</h1>
         <div className="flex items-center bg-white p-4 shadow-md rounded-md">
-          <input type="text" className="flex-1 p-2 border-2 border-gray-300 rounded-md" placeholder="Enter your idea here..." value={inputText} onChange={handleInputChange} />
-          <button className="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleAddIdea}>
+          <input type="text" className="flex-1 p-3 border-2 border-blue-300 rounded-md" placeholder="Enter your idea here..." value={inputText} onChange={handleInputChange} />
+          <button className="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out" onClick={handleAddIdea}>
             <FaPlus />
           </button>
         </div>
