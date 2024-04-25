@@ -9,11 +9,9 @@ const Index = () => {
   const [entryType, setEntryType] = useState("Text");
 
   const handleAddEntry = () => {
-    for (let i = 0; i < 3; i++) {
-      if (inputText.trim() !== "" && entryType) {
-        setEntries((prevEntries) => [...prevEntries, { id: Date.now() + i, text: inputText, category: category, important: important, type: entryType }]);
-        setInputText("");
-      }
+    if (inputText.trim() !== "" && entryType) {
+      setEntries([...entries, { id: Date.now(), text: inputText, category: category, important: important, type: entryType }]);
+      setInputText("");
     }
   };
 
