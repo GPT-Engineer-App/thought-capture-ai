@@ -10,7 +10,7 @@ The CI/CD pipeline is defined in the `.github/workflows/main.yml` file and consi
 2. **Setup Node.js**: Node.js is set up with the version specified in the workflow file.
 3. **Install Dependencies**: Project dependencies are installed using npm.
 4. **Build**: The project is built using the build script defined in package.json.
-   - Note: We use `npm run build` instead of `npm run build:dev`
+   - Note: We use `npm run build` for the build step
 5. **Deploy to Netlify**: The built project is deployed to Netlify.
 
 ## Netlify Deployment
